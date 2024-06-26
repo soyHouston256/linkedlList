@@ -19,6 +19,19 @@ func (l *linkedList) prepend(n *node) {
 	l.length++
 }
 
+func (l *linkedList) append(n *node) {
+	if l.head == nil {
+		l.head = n
+	} else {
+		current := l.head
+		for current.next != nil {
+			current = current.next
+		}
+		current.next = n
+	}
+	l.length++
+}
+
 func (l *linkedList) printListData() {
 	toPrint := l.head
 	length := l.length
@@ -62,16 +75,18 @@ func main() {
 	node7 := &node{data: 7}
 	node8 := &node{data: 8}
 	node9 := &node{data: 9}
+	node10 := &node{data: 10}
 
-	myList.prepend(node9)
-	myList.prepend(node8)
-	myList.prepend(node7)
-	myList.prepend(node6)
-	myList.prepend(node5)
-	myList.prepend(node4)
-	myList.prepend(node3)
-	myList.prepend(node2)
 	myList.prepend(node1)
+	myList.prepend(node2)
+	myList.prepend(node3)
+	myList.prepend(node4)
+	myList.prepend(node5)
+	myList.prepend(node6)
+	myList.prepend(node7)
+	myList.prepend(node8)
+	myList.prepend(node9)
+	myList.append(node10)
 
 	myList.printListData()
 
